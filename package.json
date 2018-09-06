@@ -1,22 +1,23 @@
 {
-  "name": "my-dash-component",
+  "name": "dash-responsive-grid-layout",
   "version": "0.0.1",
-  "description": "my-dash-component",
+  "description": "dash-responsive-grid-layout",
   "main": "build/index.js",
   "scripts": {
     "start": "webpack-serve ./webpack.serve.config.js --open",
     "build:js-dev": "webpack --mode development",
     "build:js": "webpack --mode production",
-    "build:py": "node ./extract-meta src/lib/components > my_dash_component/metadata.json && copyfiles package.json my_dash_component",
+    "build:py": "node ./extract-meta src/lib/components > dash_responsive_grid_layout/metadata.json && copyfiles package.json dash_responsive_grid_layout",
     "build:all": "npm run build:js & npm run build:py",
     "build:all-dev": "npm run build:js-dev & npm run build:py"
   },
-  "author": "my-name my-email",
-  "license": "my-license",
+  "author": "Alex Cabello alexander.cabello@gmail.com",
+  "license": "MIT",
   "dependencies": {
     "ramda": "^0.25.0",
     "react": "15.4.2",
-    "react-dom": "15.4.2"
+    "react-dom": "15.4.2",
+    "react-grid-layout": "^0.16.6"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

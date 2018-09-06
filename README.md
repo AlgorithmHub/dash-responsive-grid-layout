@@ -1,25 +1,17 @@
-# Dash Component Boilerplate
+# Dash Responsive Grid Layout
 
 This repository contains the minimal set of code required to create your own custom Dash component.
 
-To create your own Dash component:
-1. Fork this repo
-2. Find-and-replace:
-    1. `my_dash_component` with your component library name.
-    2. `my-dash-component` with your component library name.
-    3. `my-name` with your name and `my-email` with your email address
-    4. `my-license` with your license (e.g. `MIT`)
-    5. Rename the folder `my_dash_component/` with your component library name
-3. Install the dependencies:
+1. Install the dependencies:
 ```
 npm install
 ```
-4. Open up the JavaScript demo environment:
+2. Open up the JavaScript demo environment:
 ```
 npm run start
 ```
-5. Write your component code in `src/lib/components`. There is a sample component called `ExampleComponent.react.js` that you can use for inspiration. The demo app is in `src/demo` and you will import your example component code into your demo app.
-6. Test your code in a Python environment:
+3. Write your component code in `src/lib/components`. There is a sample component called `ExampleComponent.react.js` that you can use for inspiration. The demo app is in `src/demo` and you will import your example component code into your demo app.
+4. Test your code in a Python environment:
     1. Build your code
     ```
     npm run build:js-dev
@@ -29,7 +21,7 @@ npm run start
     ```
     python usage.py
     ```
-7. Create a production build and publish:
+5. Create a production build and publish:
     1. Build your code:
     ```
     npm run build:js
@@ -43,7 +35,7 @@ npm run start
 
     3. Test your tarball by copying it into a new environment and installing it locally:
     ```
-    pip install my_dash_component-0.0.1.tar.gz
+    pip install dash_responsive_grid_layout-0.0.1.tar.gz
     ```
 
     4. If it works, then you can publish the component to NPM and PyPI:
@@ -51,12 +43,11 @@ npm run start
     npm run publish
     ```
     ```
-    twine upload dist/dash_component-0.0.1.tar.gz
+    twine upload dist/dash_responsive_grid_layout-0.0.1.tar.gz
     ```
-8. Share your component with the community! https://community.plot.ly/c/dash
 
 # More details
-- Include CSS files in your distribution folder (`my_dash_component`) and reference them in `MANIFEST.in`
+- Include CSS files in your distribution folder (`dash_responsive_grid_layout`) and reference them in `MANIFEST.in`
 - The `tests` folder contains a sample integration test. This will run a sample Dash app in a browser. Run this with:
     ```
     python -m tests.test_render
