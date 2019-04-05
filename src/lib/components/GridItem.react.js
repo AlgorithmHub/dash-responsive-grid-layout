@@ -98,33 +98,46 @@ class GridItem extends Component {
 
       // filter only plotly charts
       // TODO height calculation only works if plot is at the immediate level
-      if(elem && elem.className && elem.className.includes('js-plotly-plot')) {
-        const parent = elem.parentElement; //div
-        let height = innerHeight(rootNode);
-        let width = innerWidth(rootNode);
+      
+      function updateElem(elem) {
+        if(elem && elem.className && typeof elem.className === 'string' && elem.className.includes('js-plotly-plot')) {
+          const parent = elem.parentElement; //div
+          let height = innerHeight(rootNode);
+          let width = innerWidth(rootNode);
 
-        // If there are other elements in the GridItem, don't allow the
-        // Plotly chart to completely fill the space
-        for (let c of parent.children) {
-          if(c !== elem) {
-            height = height - outerHeight(c);
+          // If there are other elements in the GridItem, don't allow the
+          // Plotly chart to completely fill the space
+          for (let c of parent.children) {
+            if(c !== elem) {
+              height = height - outerHeight(c);
+            }
           }
-        }
 
-        const update = {
-          width: width - 15,
-          height: height - 15, //TODO does not entirely fit.
-        };
+          const update = {
+            width: width - 15,
+            height: height - 15, //TODO does not entirely fit.
+          };
 
-        try {
-          window.Plotly.relayout(elem, update);
-        } catch(e) {
-          // Log the error
-          window.console.log(e);
+          try {
+            window.Plotly.relayout(elem, update);
+          } catch(e) {
+            // Log the error
+            window.console.log(e);
+          }
+        } else if(child.props.onResize && typeof v === 'function') {
+          child.props.onResize(); //TODO not really useful unless size is passed
         }
-      } else if(child.props.onResize && typeof v === 'function') {
-        child.props.onResize(); //TODO not really useful unless size is passed
       }
+
+      function df(node) {
+        updateElem(node);
+        if(node.children) {
+          for(var i = 0; i < node.children.length; i++)
+            df(node.children[i]);
+        }
+      }
+
+      df(elem);
     }
   }
 
