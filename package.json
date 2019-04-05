@@ -1,6 +1,6 @@
 {
   "name": "dash-responsive-grid-layout",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "dash-responsive-grid-layout",
   "main": "build/index.js",
   "scripts": {
