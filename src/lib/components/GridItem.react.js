@@ -92,8 +92,8 @@ class GridItem extends Component {
       return width;
     }      
 
-    if(child.props && child.props.id) {
-      const id = child.props.id;
+    if( (child.props && child.props.id) || (child.props._dashprivate_layout && child.props._dashprivate_layout.props.id)) {
+      const id = child.props.id || child.props._dashprivate_layout.props.id;
       const elem = document.getElementById(id);
 
       // filter only plotly charts
