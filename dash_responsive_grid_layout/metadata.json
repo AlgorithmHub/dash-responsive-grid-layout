@@ -430,8 +430,7 @@
       },
       "layouts": {
         "type": {
-          "name": "custom",
-          "raw": "function layouts(props, propName) {\n  if (type(props[propName]) !== \"[object Object]\") {\n    throw new Error(\"Layout property must be an object. Received: \" + type(props[propName]));\n  }\n  Object.keys(props[propName]).forEach(function (key) {\n    if (!(key in props.breakpoints)) {\n      throw new Error(\"Each key in layouts must align with a key in breakpoints.\");\n    }\n    (0, utils.validateLayout)(props.layouts[key], \"layouts.\" + key);\n  });\n}"
+          "name": "object"
         },
         "required": false,
         "description": ""

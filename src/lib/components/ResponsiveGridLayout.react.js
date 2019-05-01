@@ -145,17 +145,7 @@ ResponsiveGridLayout.propTypes = {
 
   // layouts is an object mapping breakpoints to layouts.
   // e.g. {lg: Layout, md: Layout, ...}
-  layouts: function layouts(props, propName) {
-    if (type(props[propName]) !== "[object Object]") {
-      throw new Error("Layout property must be an object. Received: " + type(props[propName]));
-    }
-    Object.keys(props[propName]).forEach(function (key) {
-      if (!(key in props.breakpoints)) {
-        throw new Error("Each key in layouts must align with a key in breakpoints.");
-      }
-      (0, utils.validateLayout)(props.layouts[key], "layouts." + key);
-    });
-  },
+  layouts: PropTypes.object,
 
 
   // The width of this component.
@@ -279,7 +269,7 @@ ResponsiveGridLayout.defaultProps = {
   breakpoint: 'lg',
   breakpoints: { lg: 1200, md: 996, sm: 768 },
   cols: { lg: 3, md: 2, sm: 1 },
-  layouts: {},
+  layouts: { lg: [], md: [], sm: []},
   onBreakpointChange: () => {},
   onLayoutChange: () => {},
   onWidthChange: () => {}
