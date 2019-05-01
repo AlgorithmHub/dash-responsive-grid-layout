@@ -40,7 +40,7 @@ npm run start
 
     4. If it works, then you can publish the component to NPM and PyPI:
     ```
-    npm run publish
+    npm publish
     ```
     ```
     twine upload dist/dash_responsive_grid_layout-0.0.1.tar.gz
